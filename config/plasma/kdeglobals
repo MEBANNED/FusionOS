@@ -1,0 +1,47 @@
+# ===========================================================================
+# FusionOS — KDE Global Settings
+# ===========================================================================
+# Defines the system-wide theme, fonts, colours, and icon theme.
+# ===========================================================================
+
+[General]
+ColorSchemeHash=will-be-set-at-runtime
+Name=FusionOS Dark
+fixed=JetBrains Mono,10,-1,5,50,0,0,0,0,0
+font=Inter,10,-1,5,50,0,0,0,0,0,Regular
+menuFont=Inter,10,-1,5,25,0,0,0,0,0,Regular
+smallestReadableFont=Inter,8,-1,5,50,0,0,0,0,0,Regular
+taskbarFont=Inter,10,-1,5,50,0,0,0,0,0,Regular
+toolBarFont=Inter,10,-1,5,50,0,0,0,0,0,Regular
+XftAntialias=true
+XftHintStyle=hintslight
+XftSubPixel=rgb
+
+[Icons]
+Theme=WhiteSur-dark
+
+[KDE]
+AnimationDurationFactor=0.5
+LookAndFeelPackage=org.kde.breezedark.desktop
+SingleClick=false
+widgetStyle=Breeze
+
+[Colors:View]
+BackgroundNormal=30,30,30
+ForegroundNormal=255,255,255
+
+[Colors:Window]
+BackgroundNormal=25,25,25
+ForegroundNormal=255,255,255
+
+[Colors:Selection]
+BackgroundNormal=0,122,255
+ForegroundNormal=255,255,255
+
+[Colors:Button]
+BackgroundNormal=50,50,50
+ForegroundNormal=255,255,255
+
+[Colors:Tooltip]
+BackgroundNormal=40,40,40
+ForegroundNormal=255,255,255

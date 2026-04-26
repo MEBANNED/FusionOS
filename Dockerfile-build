@@ -1,0 +1,37 @@
+# ===========================================================================
+# FusionOS — ISO Build Environment
+# ===========================================================================
+# This Dockerfile creates a Debian 12 environment with all tools needed
+# to run 'live-build'.
+# ===========================================================================
+
+FROM debian:bookworm
+
+LABEL maintainer="FusionOS Project"
+LABEL description="Build environment for FusionOS ISOs"
+
+# Prevent interactive prompts during build
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update and install core build tools
+RUN apt-get update && apt-get install -y \
+    live-build \
+    debootstrap \
+    squashfs-tools \
+    xorriso \
+    syslinux-efi \
+    grub-efi-amd64-bin \
+    grub-pc-bin \
+    git \
+    curl \
+    wget \
+    sudo \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create working directory
+WORKDIR /build
+
+# The actual build script will be mounted and run here.
+# Note: live-build requires privileged mode to mount filesystems.
+CMD ["/bin/bash"]

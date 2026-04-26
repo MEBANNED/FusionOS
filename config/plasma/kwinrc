@@ -1,0 +1,119 @@
+# ===========================================================================
+# FusionOS — KWin Window Manager Configuration
+# ===========================================================================
+# Enables: compositing, blur, macOS-like animations, Windows-style snapping,
+# desktop effects (Present Windows, Desktop Grid), and edge actions.
+# ===========================================================================
+
+[Compositing]
+Backend=OpenGL
+Enabled=true
+GLCore=true
+GLPreferBufferSwap=a
+GLTextureFilter=2
+HiddenPreviews=5
+OpenGLIsUnsafe=false
+WindowsBlockCompositing=false
+AnimationSpeed=3
+
+# ──────────────────────────────────────────────
+#  Desktop Effects
+# ──────────────────────────────────────────────
+[Plugins]
+# Core effects
+blurEnabled=true
+contrastEnabled=true
+slideEnabled=true
+desktopgridEnabled=true
+kwin4_effect_eyeonscreenEnabled=true
+kwin4_effect_windowapertureEnabled=false
+
+# macOS-style effects
+magiclampEnabled=true
+wobblywindowsEnabled=false
+scaleEnabled=true
+
+# Windows 11 Snap Layout equivalent
+tilingEnabled=true
+
+# Present Windows / Mission Control
+presentwindowsEnabled=true
+
+# Dim inactive windows for focus
+diminactiveEnabled=true
+
+# Overview effect (macOS Mission Control)
+overviewEnabled=true
+
+[Effect-Blur]
+BlurStrength=10
+NoiseStrength=2
+
+[Effect-DimInactive]
+Strength=15
+
+[Effect-PresentWindows]
+BorderActivateAll=9
+
+# ──────────────────────────────────────────────
+#  Window Snapping — Windows 11 Style
+# ──────────────────────────────────────────────
+[Windows]
+ElectricBorderMaximize=true
+ElectricBorderTiling=true
+ElectricBorderCornerRatio=0.25
+
+# Snap Zones — electric borders
+[ElectricBorders]
+Top=None
+Bottom=None
+Left=None
+Right=None
+TopLeft=None
+TopRight=None
+BottomLeft=None
+BottomRight=None
+
+[Tiling]
+padding=4
+
+[Tiling][0edb8340-3570-580b-ae3f-1d3c2c8ce13f]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.5},{"width":0.5}]}
+
+# ──────────────────────────────────────────────
+#  Virtual Desktops
+# ──────────────────────────────────────────────
+[Desktops]
+Id_1=a9f3b8d1-0c2f-4a76-b123-abcdef123456
+Id_2=b8c2e7f0-1d3e-5b87-c234-bcdef1234567
+Id_3=c7d1f6e9-2e4f-6c98-d345-cdef12345678
+Name_1=Desktop 1
+Name_2=Desktop 2
+Name_3=Desktop 3
+Number=3
+Rows=1
+
+# ──────────────────────────────────────────────
+#  Mouse & Touchpad Gestures
+# ──────────────────────────────────────────────
+[Gestures]
+PinchZoom=false
+
+# Swipe up with 3 fingers → Present Windows (Mission Control)
+[TouchpadGestures]
+SwipeUp3=presentwindows
+
+# Swipe left/right with 3 fingers → Switch Desktop
+SwipeLeft3=switchdesktopleft
+SwipeRight3=switchdesktopright
+
+# ──────────────────────────────────────────────
+#  Window Decorations
+# ──────────────────────────────────────────────
+[org.kde.kdecoration2]
+library=org.kde.sierrabreezeenhanced
+theme=SierraBreezeEnhanced
+ButtonsOnLeft=XIA
+ButtonsOnRight=
+# X = Close, I = Minimize, A = Maximize
+# Buttons on LEFT mimics macOS traffic lights

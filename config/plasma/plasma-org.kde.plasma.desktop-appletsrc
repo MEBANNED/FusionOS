@@ -1,0 +1,96 @@
+# ===========================================================================
+# FusionOS — KDE Plasma Desktop Applets Configuration
+# ===========================================================================
+# This file defines the two main panels:
+#   Panel 1 (ID 1): Top bar — Global Menu + System Tray + Clock
+#   Panel 2 (ID 2): Bottom centred dock — Icon-Only Task Manager
+# ===========================================================================
+
+[ActionPlugins][0]
+RightButton;NoModifier=org.kde.contextmenu
+
+[ActionPlugins][1]
+RightButton;NoModifier=org.kde.contextmenu
+
+# ──────────────────────────────────────────────
+#  TOP PANEL — macOS-style global menu bar
+# ──────────────────────────────────────────────
+[Containments][1]
+activityId=
+formfactor=2
+immutability=1
+lastScreen=0
+location=3
+plugin=org.kde.panel
+wallpaperplugin=org.kde.image
+
+[Containments][1][General]
+AppletOrder=3;4;5;6;7
+
+# ---- App Launcher (Start Menu — Windows style) ----
+[Containments][1][Applets][3]
+immutability=1
+plugin=org.kde.plasma.kickoff
+
+[Containments][1][Applets][3][Configuration][General]
+icon=start-here-kde-symbolic
+favoritesPortedToKAstats=true
+systemFavorites=suspend,hibernate,reboot,shutdown
+
+# ---- Global Menu (macOS style) ----
+[Containments][1][Applets][4]
+immutability=1
+plugin=org.kde.plasma.appmenu
+
+[Containments][1][Applets][4][Configuration][General]
+# The appmenu widget renders the focused application's menu bar
+
+# ---- Spacer (pushes tray + clock to the right) ----
+[Containments][1][Applets][5]
+immutability=1
+plugin=org.kde.plasma.panelspacer
+
+# ---- System Tray (Windows style) ----
+[Containments][1][Applets][6]
+immutability=1
+plugin=org.kde.plasma.systemtray
+
+[Containments][1][Applets][6][Configuration]
+PreloadWeight=100
+
+# ---- Digital Clock ----
+[Containments][1][Applets][7]
+immutability=1
+plugin=org.kde.plasma.digitalclock
+
+[Containments][1][Applets][7][Configuration][Appearance]
+showDate=true
+dateFormat=custom
+customDateFormat=ddd d MMM
+use24hFormat=2
+
+# ──────────────────────────────────────────────
+#  BOTTOM DOCK — macOS-style centred dock
+# ──────────────────────────────────────────────
+[Containments][2]
+activityId=
+formfactor=2
+immutability=1
+lastScreen=0
+location=4
+plugin=org.kde.panel
+wallpaperplugin=org.kde.image
+
+[Containments][2][General]
+AppletOrder=8
+
+# ---- Icon-Only Task Manager (dock behaviour) ----
+[Containments][2][Applets][8]
+immutability=1
+plugin=org.kde.plasma.icontasks
+
+[Containments][2][Applets][8][Configuration][General]
+launchers=applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop,applications:firefox-esr.desktop,applications:org.kde.kate.desktop,applications:systemsettings.desktop
+
+[Containments][2][Applets][8][Configuration][Appearance]
+iconSize=3

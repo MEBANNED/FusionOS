@@ -1,0 +1,41 @@
+# ===========================================================================
+# FusionOS — KRunner Configuration (macOS Spotlight equivalent)
+# ===========================================================================
+
+[General]
+FreeFloating=true
+RetainPriorSearch=false
+
+[Plugins]
+baborEnabled=true
+bookmarksEnabled=true
+calculatorEnabled=true
+desktopsessionsEnabled=true
+kaborEnabled=true
+Kill RunnerEnabled=true
+krunner_appstreamEnabled=true
+krunner_bookmarksrunnerEnabled=true
+krunner_charrunnerEnabled=false
+krunner_dictionaryEnabled=true
+krunner_katesessionsEnabled=false
+krunner_killEnabled=true
+krunner_konsoleprofilesEnabled=false
+krunner_placesrunnerEnabled=true
+krunner_powerdevilEnabled=true
+krunner_recentdocumentsEnabled=true
+krunner_sessionsEnabled=true
+krunner_shellEnabled=true
+krunner_spellcheckEnabled=true
+krunner_webshortcutsEnabled=true
+locationsEnabled=true
+org.kde.activities2Enabled=true
+org.kde.datetimeEnabled=true
+org.kde.windowedwidgetsEnabled=false
+plasma-searchEnabled=true
+servicesEnabled=true
+shellEnabled=true
+unitconverterEnabled=true
+windowsEnabled=true
+
+[PlasmaRunnerManager]
+migrated=true

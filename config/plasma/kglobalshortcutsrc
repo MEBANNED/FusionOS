@@ -1,0 +1,44 @@
+# ===========================================================================
+# FusionOS — Global Keyboard Shortcuts
+# ===========================================================================
+# Blends macOS and Windows conventions. Super key = Start Menu.
+# Alt+Space = Spotlight (KRunner). Ctrl+Super+arrows = Snap windows.
+# ===========================================================================
+
+[kwin]
+Overview=Meta+Tab\tMeta+W,Meta+W,Toggle Overview
+Expose=Ctrl+F9,Ctrl+F9,Toggle Present Windows (Current Desktop)
+ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All Desktops)
+ShowDesktopGrid=Meta+F8,Meta+F8,Show Desktop Grid
+Window Close=Alt+F4\tMeta+Q,Alt+F4,Close Window
+Window Maximize=Meta+Up,Meta+Up,Maximize Window
+Window Minimize=Meta+H,Meta+H,Minimize Window
+Window Quick Tile Bottom=Meta+Down,Meta+Down,Quick Tile Window to Bottom
+Window Quick Tile Left=Meta+Left,Meta+Left,Quick Tile Window to the Left
+Window Quick Tile Right=Meta+Right,Meta+Right,Quick Tile Window to the Right
+Window Quick Tile Top Left=Meta+Ctrl+Left\tMeta+Ctrl+Up,,Quick Tile Window to Top Left
+Window Quick Tile Top Right=Meta+Ctrl+Right\tMeta+Ctrl+Up,,Quick Tile Window to Top Right
+Window Quick Tile Bottom Left=Meta+Ctrl+Left\tMeta+Ctrl+Down,,Quick Tile Window to Bottom Left
+Window Quick Tile Bottom Right=Meta+Ctrl+Right\tMeta+Ctrl+Down,,Quick Tile Window to Bottom Right
+Switch to Desktop 1=Meta+1,Meta+1,Switch to Desktop 1
+Switch to Desktop 2=Meta+2,Meta+2,Switch to Desktop 2
+Switch to Desktop 3=Meta+3,Meta+3,Switch to Desktop 3
+Switch One Desktop to the Left=Meta+Ctrl+Left,Meta+Ctrl+Left,Switch One Desktop to the Left
+Switch One Desktop to the Right=Meta+Ctrl+Right,Meta+Ctrl+Right,Switch One Desktop to the Right
+
+[plasmashell]
+activate application launcher=Meta,Meta,Activate Application Launcher
+
+[krunner.desktop]
+RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
+_launch=Alt+Space\tAlt+F2\tSearch,Alt+Space\tAlt+F2\tSearch,KRunner
+
+[org.kde.dolphin.desktop]
+_launch=Meta+E,Meta+E,Dolphin
+
+[org.kde.konsole.desktop]
+_launch=Meta+T\tCtrl+Alt+T,,Konsole
+
+[org.kde.spectacle.desktop]
+RectangularRegionScreenShot=Meta+Shift+S\tMeta+Shift+Print,,Capture Rectangular Region
+FullScreenScreenShot=Print,,Capture Entire Desktop
