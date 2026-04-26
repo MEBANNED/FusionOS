@@ -4,27 +4,34 @@ A custom Linux distribution that blends the best of macOS and Windows into one p
 
 ## Quick Start
 
-### Option A — Prototype on an existing Debian/Ubuntu machine
+### 1. Get the source (On your Debian 13 "Build" machine)
 
 ```bash
-git clone <this-repo> fusionos && cd fusionos
-chmod +x setup-desktop-prototype.sh
-sudo ./setup-desktop-prototype.sh
-# Log out → select "Plasma (Wayland)" at SDDM → log in
+# Clone the repository
+git clone https://github.com/MEBANNED/FusionOS.git
+cd FusionOS
 ```
 
-### Option B — Build a bootable ISO
+### 2. Build the bootable ISO
 
 ```bash
-# On a Debian 12 build host:
-sudo apt install live-build debootstrap squashfs-tools xorriso \
-     syslinux-efi grub-efi-amd64-bin grub-pc-bin
+# Install build dependencies
+sudo apt update
+sudo apt install -y live-build debootstrap squashfs-tools xorriso \
+     syslinux-efi grub-efi-amd64-bin grub-pc-bin git
 
+# Run the master build script
 chmod +x build-iso.sh
 sudo ./build-iso.sh
 
-# Test the ISO:
-qemu-system-x86_64 -cdrom /opt/fusionos-build/fusionos-1.0-amd64.iso -m 4G -enable-kvm
+# The ISO will be at: /opt/fusionos-build/fusionos-1.0-amd64.iso
+```
+
+### 3. Test the ISO (On your Mac)
+
+If you have `qemu` installed:
+```bash
+qemu-system-x86_64 -cdrom fusionos-1.0-amd64.iso -m 4G -enable-kvm
 ```
 
 ## Project Structure
