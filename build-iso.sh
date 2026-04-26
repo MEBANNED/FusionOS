@@ -85,7 +85,7 @@ amd64-microcode
 systemd
 systemd-sysv
 dbus-broker
-NetworkManager
+network-manager
 network-manager-gnome
 bluez
 pulseaudio
@@ -97,7 +97,7 @@ xdg-utils
 xdg-user-dirs
 upower
 udisks2
-policykit-1
+polkitd
 gvfs
 gvfs-backends
 
@@ -114,7 +114,7 @@ curl
 wget
 git
 htop
-neofetch
+fastfetch
 nano
 vim
 unzip
@@ -136,7 +136,7 @@ kate
 ark
 gwenview
 okular
-spectacle
+# spectacle (merged into kde-spectacle in Trixie)
 kcalc
 kde-config-sddm
 systemsettings
@@ -149,7 +149,6 @@ kde-spectacle
 
 # Panel & dock
 plasma-widgets-addons
-kdeplasma-addons
 
 # Window decoration (SierraBreeze)
 # Will be compiled from source in hook script
@@ -160,8 +159,7 @@ breeze-cursor-theme
 fonts-inter
 fonts-jetbrains-mono
 
-# Wayland & X11
-plasma-workspace-wayland
+# Wayland & X11 (plasma-workspace-wayland merged into plasma-workspace in Trixie)
 xwayland
 xorg
 PKGEOF
