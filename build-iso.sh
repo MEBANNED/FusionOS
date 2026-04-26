@@ -206,26 +206,34 @@ mkdir -p config/hooks/live
 cat > config/hooks/live/01-theme-setup.hook.chroot <<'HOOKEOF'
 #!/bin/bash
 set -e
-echo "[FusionOS] Installing WhiteSur icon theme..."
+echo "[FusionOS] Installing theme dependencies..."
+apt-get install -y sassc libglib2.0-dev libxml2-utils dialog || true
 
+echo "[FusionOS] Installing WhiteSur icon theme..."
 cd /tmp
-git clone --depth=1 https://github.com/vinceliuice/WhiteSur-icon-theme.git
-cd WhiteSur-icon-theme
-./install.sh -d /usr/share/icons -t default
-cd /tmp && rm -rf WhiteSur-icon-theme
+git clone --depth=1 https://github.com/vinceliuice/WhiteSur-icon-theme.git || true
+if [ -d WhiteSur-icon-theme ]; then
+    cd WhiteSur-icon-theme
+    ./install.sh -d /usr/share/icons -t default || true
+    cd /tmp && rm -rf WhiteSur-icon-theme
+fi
 
 echo "[FusionOS] Installing WhiteSur GTK theme..."
 cd /tmp
-git clone --depth=1 https://github.com/vinceliuice/WhiteSur-gtk-theme.git
-cd WhiteSur-gtk-theme
-./install.sh -c Dark -s standard -l -N mojave
-cd /tmp && rm -rf WhiteSur-gtk-theme
+git clone --depth=1 https://github.com/vinceliuice/WhiteSur-gtk-theme.git || true
+if [ -d WhiteSur-gtk-theme ]; then
+    cd WhiteSur-gtk-theme
+    ./install.sh -c Dark -s standard -d /usr/share/themes || true
+    cd /tmp && rm -rf WhiteSur-gtk-theme
+fi
 
 echo "[FusionOS] Installing macOS BigSur cursor..."
 cd /tmp
-git clone --depth=1 https://github.com/ful1e5/apple_cursor.git
-cp -r apple_cursor/macOS-BigSur /usr/share/icons/macOS-BigSur || true
-cd /tmp && rm -rf apple_cursor
+git clone --depth=1 https://github.com/ful1e5/apple_cursor.git || true
+if [ -d apple_cursor ]; then
+    cp -r apple_cursor/macOS-BigSur /usr/share/icons/macOS-BigSur || true
+    cd /tmp && rm -rf apple_cursor
+fi
 
 echo "[FusionOS] Theme installation complete."
 HOOKEOF
