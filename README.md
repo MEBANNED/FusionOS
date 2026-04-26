@@ -45,61 +45,74 @@ sudo ./build-iso.sh
 # The ISO will be at: /opt/fusionos-build/fusionos-1.0-amd64.iso
 ```
 
-### 3. Test/Install the ISO
+### 3. Install on a real computer
 
-Once you have the `.iso` file, copy it to your host machine and boot it in a VM.
+This is the recommended way to experience FusionOS at full performance.
+
+**What you need:**
+- A USB flash drive (4 GB or larger)
+- A tool to flash the ISO to USB:
+  - **Windows**: [Rufus](https://rufus.ie/) or [balenaEtcher](https://etcher.balena.io/)
+  - **macOS**: [balenaEtcher](https://etcher.balena.io/) or the `dd` command (see below)
+  - **Linux**: [balenaEtcher](https://etcher.balena.io/), GNOME Disks, or `dd`
+
+**Steps:**
+
+1. **Flash the ISO to your USB drive.**
+
+   Using balenaEtcher (all platforms):
+   1. Open balenaEtcher.
+   2. Click **Flash from file** and select `fusionos-1.0-amd64.iso`.
+   3. Select your USB drive.
+   4. Click **Flash** and wait for it to finish.
+
+   Using `dd` (macOS/Linux terminal):
+   ```bash
+   # Find your USB drive (e.g. /dev/diskX on macOS, /dev/sdX on Linux)
+   # ⚠️  MAKE SURE you pick the right drive — this will erase it!
+   sudo dd if=fusionos-1.0-amd64.iso of=/dev/sdX bs=4M status=progress
+   sync
+   ```
+
+2. **Boot from the USB drive.**
+   1. Plug the USB into the target computer.
+   2. Restart and enter the boot menu (usually **F12**, **F2**, **Esc**, or **Del** — depends on your motherboard).
+   3. Select the USB drive from the boot menu.
+   4. FusionOS will boot into the live desktop.
+
+3. **Install to the hard drive.**
+   1. Once in the live desktop, open the **Calamares** installer (it should appear on the desktop or in the app menu).
+   2. Follow the on-screen wizard to partition your drive, set your username, and install.
+   3. Reboot and remove the USB when prompted.
+
+---
+
+### If you want to install on a virtual machine
+
+If you'd rather test FusionOS without touching your real hardware, you can run it in a VM. Allocate at least **4 GB RAM**, **2 CPU cores**, and **20 GB disk space** for the best experience.
 
 #### macOS
 
-**UTM (Recommended)**
-1. Open UTM and click **+** to create a new VM.
-2. Select **Virtualize** → **Linux**.
-3. For the **Boot ISO Image**, browse and select `fusionos-1.0-amd64.iso`.
-4. Allocate at least **4 GB RAM** and **2 CPU cores**.
-5. Follow the prompts and click **Play**.
-
-**VMware Fusion**
-1. Select **File** → **New**.
-2. Drag and drop the `fusionos-1.0-amd64.iso` onto the install window.
-3. Allocate at least **4 GB RAM** and **2 CPU cores**.
-4. Follow the wizard to create and start the VM.
+| App | How to install the ISO |
+|---|---|
+| **UTM** (free) | Click **+** → **Virtualize** → **Linux** → select the ISO as **Boot ISO Image** → **Play** |
+| **VMware Fusion** | **File** → **New** → drag and drop the ISO → follow the wizard |
 
 #### Windows
 
-**VMware Workstation Player (Recommended)**
-1. Download and install [VMware Workstation Player](https://www.vmware.com/products/workstation-player.html) (free for personal use).
-2. Click **Create a New Virtual Machine**.
-3. Select **Installer disc image file (iso)** and browse to `fusionos-1.0-amd64.iso`.
-4. Set guest OS to **Linux** → **Debian 12/13 64-bit**.
-5. Allocate at least **4 GB RAM** and **2 CPU cores**.
-6. Finish the wizard and click **Play virtual machine**.
-
-**VirtualBox**
-1. Download and install [VirtualBox](https://www.virtualbox.org/).
-2. Click **New**, name it `FusionOS`, set type to **Linux** and version to **Debian (64-bit)**.
-3. Allocate at least **4 GB RAM**.
-4. Create a virtual hard disk (20 GB+ recommended).
-5. Go to **Settings** → **Storage**, click the empty disc icon, and select `fusionos-1.0-amd64.iso`.
-6. Click **Start**.
-
-**Hyper-V (Windows Pro/Enterprise only)**
-1. Open **Hyper-V Manager** from the Start menu.
-2. Click **New** → **Virtual Machine**.
-3. Point the installation media to `fusionos-1.0-amd64.iso`.
-4. Select **Generation 2**, allocate at least **4 GB RAM**.
-5. Start the VM.
+| App | How to install the ISO |
+|---|---|
+| **VMware Workstation Player** (free) | **Create a New Virtual Machine** → **Installer disc image file** → browse to the ISO → set OS to **Linux / Debian 64-bit** → finish wizard → **Play** |
+| **VirtualBox** (free) | **New** → name it `FusionOS`, type **Linux**, version **Debian 64-bit** → create a 20 GB disk → **Settings** → **Storage** → attach the ISO to the empty disc → **Start** |
+| **Hyper-V** (Pro/Enterprise) | **New** → **Virtual Machine** → point to the ISO → **Generation 2** → **Start** |
 
 #### Linux
 
-**QEMU/KVM (Command line)**
-```bash
-qemu-system-x86_64 -cdrom fusionos-1.0-amd64.iso -m 4G -enable-kvm
-```
-
-**GNOME Boxes**
-1. Open Boxes -> Click **+** -> **Create a virtual machine**.
-2. Select **Operating System Image File** and choose `fusionos-1.0-amd64.iso`.
-3. Click **Create**.
+| App | How to install the ISO |
+|---|---|
+| **QEMU/KVM** | `qemu-system-x86_64 -cdrom fusionos-1.0-amd64.iso -m 4G -enable-kvm` |
+| **GNOME Boxes** | Click **+** → **Create a virtual machine** → select the ISO → **Create** |
+| **VirtualBox** | Same steps as the Windows guide above |
 
 ## Project Structure
 
