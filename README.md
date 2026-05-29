@@ -4,14 +4,14 @@ A custom Linux distribution that blends the best of macOS and Windows into one p
 
 ## Prerequisites
 
-You need a **Debian 13 (Trixie)** environment to build the ISO. If you don't already have one, follow the guide for your OS below to set one up first.
+You need a **Debian 12 (Bookworm)** environment to build the ISO. If you don't already have one, follow the guide for your OS below to set one up first.
 
 <details>
 <summary><strong>I don't have a Linux machine (click to expand)</strong></summary>
 
-You'll need to create a temporary Debian 13 virtual machine to use as your "build factory."
+You'll need to create a temporary Debian 12 virtual machine to use as your "build factory."
 
-1. Download the official **Debian 13 (Trixie)** ISO from [debian.org/distrib](https://www.debian.org/distrib/).
+1. Download the official **Debian 12 (Bookworm)** ISO from the [Debian Archives](https://cdimage.debian.org/cdimage/archive/). (Navigate to the highest 12.x.x version folder -> amd64 -> iso-cd, and download the `netinst.iso`).
 2. Install it in a VM using one of these apps:
    - **macOS**: [UTM](https://mac.getutm.app/) (free) or [VMware Fusion](https://www.vmware.com/products/fusion.html)
    - **Windows**: [VMware Workstation Player](https://www.vmware.com/products/workstation-player.html) (free) or [VirtualBox](https://www.virtualbox.org/)
@@ -22,9 +22,13 @@ You'll need to create a temporary Debian 13 virtual machine to use as your "buil
 
 ## Quick Start
 
-### 1. Get the source (On your Debian 13 machine)
+### 1. Get the source (On your Debian 12 machine)
 
 ```bash
+# If you are using a minimal Debian netinst ISO, you may need to install git first:
+# su -
+# apt update
+# apt install git -y
 # Clone the repository
 git clone https://github.com/MEBANNED/FusionOS.git
 cd FusionOS
