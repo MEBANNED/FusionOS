@@ -251,7 +251,7 @@ apt-get install -y cmake extra-cmake-modules build-essential \
     gettext || true
 
 cd /tmp
-git clone --depth=1 https://github.com/kupiqu/SiesrraBreezeEnhanced.git || \
+git clone --depth=1 https://github.com/kupiqu/SierraBreezeEnhanced.git || \
 git clone --depth=1 https://github.com/ishovkun/SierraBreeze.git SierraBreezeEnhanced
 
 cd SierraBreezeEnhanced
