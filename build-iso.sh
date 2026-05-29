@@ -114,7 +114,7 @@ curl
 wget
 git
 htop
-fastfetch
+neofetch
 nano
 vim
 unzip
