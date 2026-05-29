@@ -242,7 +242,6 @@ chmod +x config/hooks/live/01-theme-setup.hook.chroot
 # ------- 4b. SierraBreeze Enhanced (window decorations) -------
 cat > config/hooks/live/02-sierrabreeze.hook.chroot <<'HOOKEOF'
 #!/bin/bash
-set -e
 echo "[FusionOS] Building SierraBreeze Enhanced..."
 
 apt-get install -y cmake extra-cmake-modules build-essential \
@@ -254,14 +253,19 @@ cd /tmp
 git clone --depth=1 https://github.com/kupiqu/SierraBreezeEnhanced.git || \
 git clone --depth=1 https://github.com/ishovkun/SierraBreeze.git SierraBreezeEnhanced
 
-cd SierraBreezeEnhanced
-mkdir build && cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr
-make -j"$(nproc)"
-make install
-cd /tmp && rm -rf SierraBreezeEnhanced
-
-echo "[FusionOS] SierraBreeze installed."
+if [ -d SierraBreezeEnhanced ]; then
+    cd SierraBreezeEnhanced
+    mkdir -p build && cd build
+    if cmake .. -DCMAKE_INSTALL_PREFIX=/usr; then
+        make -j"$(nproc)" && make install
+        echo "[FusionOS] SierraBreeze installed."
+    else
+        echo "[FusionOS] SierraBreeze build skipped (incompatible ECM version)."
+    fi
+    cd /tmp && rm -rf SierraBreezeEnhanced
+else
+    echo "[FusionOS] SierraBreeze clone failed, skipping."
+fi
 HOOKEOF
 chmod +x config/hooks/live/02-sierrabreeze.hook.chroot
 
