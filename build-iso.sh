@@ -22,7 +22,7 @@ WORK_DIR="/opt/fusionos-build"
 CONFIG_SRC="$(cd "$(dirname "$0")" && pwd)"   # path to this repo root
 ARCH="amd64"
 DEBIAN_MIRROR="http://deb.debian.org/debian"
-DEBIAN_SUITE="trixie"                        # Changed to Trixie for Debian 13 support
+DEBIAN_SUITE="bookworm"                        # Changed to Bookworm for Debian 12 support
 KERNEL_FLAVOUR="amd64"
 
 echo "============================================="
