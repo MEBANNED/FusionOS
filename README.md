@@ -11,9 +11,10 @@ You need a **Debian 12 (Bookworm)** environment to build the ISO. If you don't a
 
 You'll need to create a temporary Debian 12 virtual machine to use as your "build factory."
 
-1. Download the official **Debian 12 (Bookworm)** ISO from the [Debian Archives](https://cdimage.debian.org/cdimage/archive/). (Navigate to the highest 12.x.x version folder -> amd64 -> iso-cd, and download the `netinst.iso`).
+1. Download the official **Debian 12 (Bookworm)** ISO from the [Debian Archives](https://cdimage.debian.org/cdimage/archive/). (Navigate to the highest 12.14.0 version folder -> amd64(for intel devices) or ARM64 (for ARM devices or Apple Silicon Macs). -> iso-cd, and download the `netinst.iso`).
 2. Install it in a VM using one of these apps:
    - **macOS**: [UTM](https://mac.getutm.app/) (free) or [VMware Fusion](https://www.vmware.com/products/fusion.html)
+**Note**: For VMware Fusion, log into you Broadcom account, navigate to "My downloads" and click on the link saying "Free downloads available here" and find VMware Fusion Pro
    - **Windows**: [VMware Workstation Player](https://www.vmware.com/products/workstation-player.html) (free) or [VirtualBox](https://www.virtualbox.org/)
 3. During the Debian install, select the **standard system utilities** and **SSH server** options. A desktop environment is not required.
 4. Once Debian is running, open a terminal inside it and continue with the Quick Start below.

@@ -266,6 +266,8 @@ if [ -d SierraBreezeEnhanced ]; then
 else
     echo "[FusionOS] SierraBreeze clone failed, skipping."
 fi
+
+exit 0
 HOOKEOF
 chmod +x config/hooks/live/02-sierrabreeze.hook.chroot
 
