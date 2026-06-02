@@ -90,6 +90,8 @@ This is the recommended way to experience FusionOS at full performance.
    2. Follow the on-screen wizard to partition your drive, set your username, and install.
    3. Reboot and remove the USB when prompted.
 
+> ⚠️ **Driver Disclaimer:** FusionOS does not ship with drivers for all hardware. If you install it on a physical machine, you may need to manually install drivers for your GPU, Wi-Fi adapter, or other peripherals. Use at your own risk.
+
 ---
 
 ### If you want to install on a virtual machine
