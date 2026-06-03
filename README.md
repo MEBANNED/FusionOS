@@ -25,12 +25,15 @@ You'll need to create a temporary Debian 12 virtual machine to use as your "buil
 
 ### 1. Get the source (On your Debian 12 machine)
 
+
+# If you are using a minimal Debian ISO, you may need to install git first:
 ```bash
-# If you are using a minimal Debian netinst ISO, you may need to install git first:
 # su -
 # apt update
 # apt install git -y
-# Clone the repository
+```
+# Then clone the repository:
+```bash
 git clone https://github.com/MEBANNED/FusionOS.git
 cd FusionOS
 ```
@@ -58,8 +61,8 @@ This is the recommended way to experience FusionOS at full performance.
 - A USB flash drive (4 GB or larger)
 - A tool to flash the ISO to USB:
   - **Windows**: [Rufus](https://rufus.ie/) or [balenaEtcher](https://etcher.balena.io/)
-  - **macOS**: [balenaEtcher](https://etcher.balena.io/) or the `dd` command (see below)
-  - **Linux**: [balenaEtcher](https://etcher.balena.io/), GNOME Disks, or `dd`
+  - **macOS**: [balenaEtcher](https://etcher.balena.io/) or the `dd` command(not recomended, see below)
+  - **Linux**: [balenaEtcher](https://etcher.balena.io/), GNOME Disks, or `dd`(not recomended, see below)
 
 **Steps:**
 
@@ -71,7 +74,8 @@ This is the recommended way to experience FusionOS at full performance.
    3. Select your USB drive.
    4. Click **Flash** and wait for it to finish.
 
-   Using `dd` (macOS/Linux terminal):
+   Using `dd` (not recomended, macOS/Linux terminal)
+   Disclaimer: By proceeding, you acknowledge and agree that FusionOS and its creators shall not be held liable for any data loss, corrupted files, or hardware damage resulting from the selection or erasure of an incorrect disk. It is the user’s sole responsibility to backup all data prior to formatting.
    ```bash
    # Find your USB drive (e.g. /dev/diskX on macOS, /dev/sdX on Linux)
    # ⚠️  MAKE SURE you pick the right drive — this will erase it!
@@ -79,13 +83,13 @@ This is the recommended way to experience FusionOS at full performance.
    sync
    ```
 
-2. **Boot from the USB drive.**
+3. **Boot from the USB drive.**
    1. Plug the USB into the target computer.
    2. Restart and enter the boot menu (usually **F12**, **F2**, **Esc**, or **Del** — depends on your motherboard).
    3. Select the USB drive from the boot menu.
    4. FusionOS will boot into the live desktop.
 
-3. **Install to the hard drive.**
+4. **Install to the hard drive.**
    1. Once in the live desktop, open the **Calamares** installer (it should appear on the desktop or in the app menu).
    2. Follow the on-screen wizard to partition your drive, set your username, and install.
    3. Reboot and remove the USB when prompted.
