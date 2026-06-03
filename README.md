@@ -26,13 +26,13 @@ You'll need to create a temporary Debian 12 virtual machine to use as your "buil
 ### 1. Get the source (On your Debian 12 machine)
 
 
-# If you are using a minimal Debian ISO, you may need to install git first:
+If you are using a minimal Debian ISO, you may need to install git first:
 ```bash
 # su -
 # apt update
 # apt install git -y
 ```
-# Then clone the repository:
+Then clone the repository:
 ```bash
 git clone https://github.com/MEBANNED/FusionOS.git
 cd FusionOS
